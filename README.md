@@ -24,18 +24,18 @@
 6. Id автосалона.
 
 Эндпойнты Car:
-Create - http://localhost:8080/cars  - создать объект car
-Get  - http://localhost:8080/cars/1  - получить объект car по id
-Get - http://localhost:8080/cars - получить все объекты car
-Update  - http://localhost:8080/cars - обновить объект car, id в теле запроса
-Delete - http://localhost:8080/cars/1 - удалить объект car по id
+- Create - http://localhost:8080/cars  - создать объект car
+- Get  - http://localhost:8080/cars/1  - получить объект car по id
+- Get - http://localhost:8080/cars - получить все объекты car
+- Update  - http://localhost:8080/cars - обновить объект car, id в теле запроса
+- Delete - http://localhost:8080/cars/1 - удалить объект car по id
 
 Эндпойнты Dealers:
-Create - http://localhost:8080/dealers - создать объект dealer
-Get  - http://localhost:8080/dealers/1 -  получить объект dealer по id
-Get - http://localhost:8080/dealers - получить все объекты dealer
-Update  - http://localhost:8080/dealers - обновить объект dealer, id в теле запроса
-Create - http://localhost:8080/dealers/1 - удалить объект dealer по id
+- Create - http://localhost:8080/dealers - создать объект dealer
+- Get  - http://localhost:8080/dealers/1 -  получить объект dealer по id
+- Get - http://localhost:8080/dealers - получить все объекты dealer
+- Update  - http://localhost:8080/dealers - обновить объект dealer, id в теле запроса
+- Create - http://localhost:8080/dealers/1 - удалить объект dealer по id
 
 Тесты c запросами на указанные выше эндпойнты расположены в папке postman.
 
