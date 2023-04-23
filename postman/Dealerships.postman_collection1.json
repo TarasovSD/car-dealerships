@@ -562,6 +562,23 @@
 		},
 		{
 			"name": "Get all cars",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,201]);",
+							"});",
+							"pm.test(\"Test get all cars\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.length, 'cars count in total').to.eql(0);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
