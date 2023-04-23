@@ -40,7 +40,7 @@
 Тесты c запросами на указанные выше эндпойнты расположены в папке postman.
 
 К проекту подключены следующие зависимости:
-- spring-boot-starter-validation, spring-boot-starter-web, spring-boot-starter-test, spring-boot-starter-data-jpa, hibernate-validator для работы Spring Boot и hibernate;
+- spring-boot-starter-validation, spring-boot-starter-web, spring-boot-starter-test, spring-boot-starter-data-jpa, hibernate-validator для работы Spring Boot и Hibernate;
 - lombok для работы аннотаций (@Getter, @Setter и т.д.);
 - h2 для подключения к тесовой базе H2 с целью быстрой отладки программы;
 - postgresql для основной базы данных PostgreSQL.
