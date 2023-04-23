@@ -1,0 +1,12 @@
+version: '3.1'
+services:
+
+  cd-db:
+    image: postgres:14-alpine
+    container_name: cd-db
+    ports:
+      - "6540:5432"
+    environment:
+      - POSTGRES_DB=car-dealership
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root

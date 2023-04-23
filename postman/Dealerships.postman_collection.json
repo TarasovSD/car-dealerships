@@ -1,0 +1,583 @@
+{
+	"info": {
+		"_postman_id": "d200e467-0048-4155-8e12-3b713d283d70",
+		"name": "Dealerships",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21754447"
+	},
+	"item": [
+		{
+			"name": "Create dealer 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,201]);",
+							"});",
+							"pm.test(\"Test create dealer\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.id, '\"id\" field').to.eql(1);",
+							"    pm.expect(jsonData.city, '\"city\" field').to.eql('Санкт-Петербург');",
+							"    pm.expect(jsonData.rent, '\"rent\" field').to.eql(1000);",
+							"    pm.expect(jsonData.description, '\"description\" field').to.eql('Dealer number one');",
+							"    pm.expect(jsonData.square, '\"square\" field').to.eql(300);",
+							"    pm.expect(jsonData.staff, '\"staff\" field').to.eql(7);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": null,\n    \"city\": \"Санкт-Петербург\",\n    \"rent\": 1000,\n    \"description\": \"Dealer number one\",\n    \"square\": 300,\n    \"staff\": 7\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/dealers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dealers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get dealer 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,201]);",
+							"});",
+							"pm.test(\"Test get dealer\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.id, '\"id\" field').to.eql(1);",
+							"    pm.expect(jsonData.city, '\"city\" field').to.eql('Санкт-Петербург');",
+							"    pm.expect(jsonData.rent, '\"rent\" field').to.eql(1000);",
+							"    pm.expect(jsonData.description, '\"description\" field').to.eql('Dealer number one');",
+							"    pm.expect(jsonData.square, '\"square\" field').to.eql(300);",
+							"    pm.expect(jsonData.staff, '\"staff\" field').to.eql(7);",
+							"    pm.expect(jsonData.cars.length, 'length of \"cars\" field').to.eql(0);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/dealers/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dealers",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create car 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,201]);",
+							"});",
+							"pm.test(\"Test create car 1\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.id, '\"id\" field').to.eql(1);",
+							"    pm.expect(jsonData.model, '\"model\" field').to.eql('ferrari');",
+							"    pm.expect(jsonData.color, '\"color\" field').to.eql('blue');",
+							"    pm.expect(jsonData.price, '\"price\" field').to.eql(30000000);",
+							"    pm.expect(jsonData.maxSpeed, '\"maxSpeed\" field').to.eql(300);",
+							"    pm.expect(jsonData.dealerId, '\"dealerId\" field').to.eql(1);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": null,\n    \"model\": \"ferrari\",\n    \"color\": \"blue\",\n    \"description\": \"expensive car\",\n    \"price\": 30000000,\n    \"maxSpeed\": 300,\n    \"dealerId\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/cars",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cars"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all cars",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,201]);",
+							"});",
+							"pm.test(\"Test get all cars\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.length, 'cars count in total').to.eql(1);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/cars",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cars"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update car 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,201]);",
+							"});",
+							"pm.test(\"Test update car\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.id, '\"id\" field').to.eql(1);",
+							"    pm.expect(jsonData.model, '\"model\" field').to.eql('ferrari');",
+							"    pm.expect(jsonData.color, '\"color\" field').to.eql('red');",
+							"    pm.expect(jsonData.price, '\"price\" field').to.eql(50000000);",
+							"    pm.expect(jsonData.maxSpeed, '\"maxSpeed\" field').to.eql(500);",
+							"    pm.expect(jsonData.dealerId, '\"dealerId\" field').to.eql(1);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1,\n    \"model\": \"ferrari\",\n    \"color\": \"red\",\n    \"price\": 50000000,\n    \"maxSpeed\": 500,\n    \"dealerId\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/cars",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cars"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get car 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,201]);",
+							"});",
+							"pm.test(\"Test get car 1\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.id, '\"id\" field').to.eql(1);",
+							"    pm.expect(jsonData.model, '\"model\" field').to.eql('ferrari');",
+							"    pm.expect(jsonData.color, '\"color\" field').to.eql('red');",
+							"    pm.expect(jsonData.price, '\"price\" field').to.eql(50000000);",
+							"    pm.expect(jsonData.maxSpeed, '\"maxSpeed\" field').to.eql(500);",
+							"    pm.expect(jsonData.dealerId, '\"dealerId\" field').to.eql(1);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/cars/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cars",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete car 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,201]);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/cars/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cars",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get delited car",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([404]);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/cars/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cars",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Creare car 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,201]);",
+							"});",
+							"pm.test(\"Test create car 2\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.id, '\"id\" field').to.eql(2);",
+							"    pm.expect(jsonData.model, '\"model\" field').to.eql('lada');",
+							"    pm.expect(jsonData.color, '\"color\" field').to.eql('pink');",
+							"    pm.expect(jsonData.price, '\"price\" field').to.eql(10000);",
+							"    pm.expect(jsonData.maxSpeed, '\"maxSpeed\" field').to.eql(100);",
+							"    pm.expect(jsonData.dealerId, '\"dealerId\" field').to.eql(1);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": null,\n    \"model\": \"lada\",\n    \"color\": \"pink\",\n    \"description\": \"cheap car\",\n    \"price\": 10000,\n    \"maxSpeed\": 100,\n    \"dealerId\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/cars",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cars"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all dealers",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,201]);",
+							"});",
+							"pm.test(\"Test get all dealers\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.length, 'dealers count in total').to.eql(1);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/dealers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dealers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update dealer 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,201]);",
+							"});",
+							"pm.test(\"Test update dealer\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.id, '\"id\" field').to.eql(1);",
+							"    pm.expect(jsonData.city, '\"city\" field').to.eql('Mocква');",
+							"    pm.expect(jsonData.rent, '\"rent\" field').to.eql(1200);",
+							"    pm.expect(jsonData.description, '\"description\" field').to.eql('The best dealer');",
+							"    pm.expect(jsonData.square, '\"square\" field').to.eql(300);",
+							"    pm.expect(jsonData.staff, '\"staff\" field').to.eql(7);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1,\n    \"city\": \"Mocква\",\n    \"rent\": 1200,\n    \"description\": \"The best dealer\",\n    \"square\": 300,\n    \"staff\": 7\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/dealers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dealers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Dealer 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,201]);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/dealers/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dealers",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all dealers",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,201]);",
+							"});",
+							"pm.test(\"Test get all dealers\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.length, 'dealers count in total').to.eql(0);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/dealers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dealers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all cars",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/cars",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cars"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
