@@ -24,23 +24,23 @@
 6. Id автосалона.
 
 Эндпойнты Car:
-Create - http://localhost:8080/cars  - создать объект car
-Get  - http://localhost:8080/cars/1  - получить объект car по id
-Get - http://localhost:8080/cars - получить все объекты car
-Update  - http://localhost:8080/cars - обновить объект car, id в теле запроса
-Delete - http://localhost:8080/cars/1 - удалить объект car по id
+- Create - http://localhost:8080/cars  - создать объект car
+- Get  - http://localhost:8080/cars/1  - получить объект car по id
+- Get - http://localhost:8080/cars - получить все объекты car
+- Update  - http://localhost:8080/cars - обновить объект car, id в теле запроса
+- Delete - http://localhost:8080/cars/1 - удалить объект car по id
 
 Эндпойнты Dealers:
-Create - http://localhost:8080/dealers - создать объект dealer
-Get  - http://localhost:8080/dealers/1 -  получить объект dealer по id
-Get - http://localhost:8080/dealers - получить все объекты dealer
-Update  - http://localhost:8080/dealers - обновить объект dealer, id в теле запроса
-Create - http://localhost:8080/dealers/1 - удалить объект dealer по id
+- Create - http://localhost:8080/dealers - создать объект dealer
+- Get  - http://localhost:8080/dealers/1 -  получить объект dealer по id
+- Get - http://localhost:8080/dealers - получить все объекты dealer
+- Update  - http://localhost:8080/dealers - обновить объект dealer, id в теле запроса
+- Create - http://localhost:8080/dealers/1 - удалить объект dealer по id
 
 Тесты c запросами на указанные выше эндпойнты расположены в папке postman.
 
 К проекту подключены следующие зависимости:
-- spring-boot-starter-validation, spring-boot-starter-web, spring-boot-starter-test, spring-boot-starter-data-jpa, hibernate-validator для работы Spring Boot и hibernate;
+- spring-boot-starter-validation, spring-boot-starter-web, spring-boot-starter-test, spring-boot-starter-data-jpa, hibernate-validator для работы Spring Boot и Hibernate;
 - lombok для работы аннотаций (@Getter, @Setter и т.д.);
 - h2 для подключения к тесовой базе H2 с целью быстрой отладки программы;
 - postgresql для основной базы данных PostgreSQL.
